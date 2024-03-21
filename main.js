@@ -1,22 +1,19 @@
-let input = 'A whale of a deal';
-const vowels = ['a', 'e', 'i', 'o', 'u'];
-let resultArray = [];
-for (let i = 0; i < input.length; i++) {
-    console.log('i is ' + i);
-    for (let j = 0; j < vowels.length; j++) {
-        console.log('j is ' + j)
-        if (input[i] === vowels[j]) {
-            resultArray.push(input[i]);
+document.getElementById('extract-button').addEventListener('click', function() {
+    const inputText = document.getElementById('input-text').value.toLowerCase(); // Convert input text to lowercase for easier comparison
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    let resultArray = [];
+
+    for (let i = 0; i < inputText.length; i++) {
+        if (vowels.includes(inputText[i]) || inputText[i] === 'e' || inputText[i] === 'u') {
+            resultArray.push(inputText[i]);
         }
     }
-    if (input[i] === 'e') {
-        resultArray.push('e');
 
-    }
-    if (input[i] === 'u') {
-        resultArray.push('u');
-    }
-}
-const resultString = resultArray.join('').toUpperCase();
-console.log(resultString);
+    const resultString = resultArray.join('').toUpperCase();
 
+    if (resultString.length > 0) {
+        document.getElementById('result').textContent = resultString;
+    } else {
+        document.getElementById('result').textContent = "The input text is not translatable to whale talk.";
+    }
+});
