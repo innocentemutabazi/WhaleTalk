@@ -4,7 +4,7 @@ document.getElementById('extract-button').addEventListener('click', function() {
     let resultArray = [];
 
     for (let i = 0; i < inputText.length; i++) {
-        if (vowels.includes(inputText[i]) || inputText[i] === 'e' || inputText[i] === 'u') {
+        if (vowels.includes(inputText[i])) {
             resultArray.push(inputText[i]);
         }
     }
